@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en"><head>
+
+
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png"><title>p2pool - node stats</title>
 
-    <title>p2pool - node stats</title>
+    
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,100,100italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic,400,700" rel="stylesheet" type="text/css"><!-- Bootstrap core CSS -->
 
-    <!-- Bootstrap core CSS -->
+    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -28,9 +30,9 @@
     <script src="js/util.js"></script>
     <script src="js/charts.js"></script>
 
-    <script src="js/config.json"></script>
+    <script src="js/config.json"></script><!-- Custom styles for this template -->
 
-    <!-- Custom styles for this template -->
+    
     <link href="grid.css" rel="stylesheet">
 
     <style type="text/css">
@@ -41,22 +43,13 @@
       #myModal .modal-dialog {
         width: 70%;/* your width */
       }
-    </style>
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+    </style><!-- Just for debugging purposes. Don't actually copy this line! --><!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]--><!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --><!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-    <div id='ribbon' style='display:none;'>
+    <![endif]--></head><body>
+    <div id="ribbon" style="display: none;">
       <a href="https://github.com/johndoe75/p2pool-node-status">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="img/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+        <img style="border: 0pt none ; position: absolute; top: 0pt; right: 0pt;" src="img/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
       </a>
     </div>
 
@@ -64,17 +57,18 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>p2pool <span id='currency'></span> &dash; node dashboard</h1>
+        <h1>&nbsp;&nbsp;&nbsp; P2POOL Digibyte(DGB) SHA256&nbsp; node<br>
+</h1>
         <b>
           <small>
-            <span id='_node' class='hidden'>Node: </span>
-            <span id='node' class='hidden'></span><br/>
-            Updated: <span id='updated'></span>
+            <span id="_node" class="hidden">Node: </span>
+            <span id="node" class="hidden"></span><br>
+            Updated: <span id="updated"></span>
           </small>
         </b>
       </div>
 
-      <div id='node_alerts' class="alert alert-danger hidden"></div>
+      <div id="node_alerts" class="alert alert-danger hidden"></div>
 
       <!-- We should have a possiblity showing other miners on our node what
            happened or if we have other things to tell them. -->
@@ -83,78 +77,91 @@
       </div>
 
       <center>
-        <div class='container'>
-          <button id='hour' type="button" class="hashrate btn btn-info">Hour</button>
-          <button id='day' type="button" class="hashrate btn btn-info">Day</button>
-          <button id='week' type="button" class="hashrate btn btn-info">Week</button>
-          <button id='month' type="button" class="hashrate btn btn-info">Month</button>
-          <button id='year' type="button" class="hashrate btn btn-info">Year</button>
+        <div class="container">
+          <button id="hour" type="button" class="hashrate btn btn-info">Hour</button>
+          <button id="day" type="button" class="hashrate btn btn-info">Day</button>
+          <button id="week" type="button" class="hashrate btn btn-info">Week</button>
+          <button id="month" type="button" class="hashrate btn btn-info">Month</button>
+          <button id="year" type="button" class="hashrate btn btn-info">Year</button>
         </div>
       </center>
-      <div id='chart'></div>
+      <div id="chart"></div>
 
       <h4>Status</h4>
-      <table id='status' class="table table-hover" border='0'>
-        <tr>
-          <td width='19%'>Local rate:</td>
-          <td width='31%' class='text-right'><span id='local_rate'></span></td>
-          <td width='19%'>Shares:</td>
-          <td width='31%' class='text-right'><span id='shares'></span></td>
+      <table id="status" class="table table-hover" border="0">
+        <tbody><tr>
+          <td width="19%">Local rate:</td>
+          <td class="text-right" width="31%"><span id="local_rate"></span><br>
+</td>
+          <td width="19%">Shares:</td>
+          <td class="text-right" width="31%"><span id="shares"></span><br>
+</td>
         </tr>
         <tr>
-          <td width='19%'>Global pool rate:</td>
-          <td width='31%' class='text-right'><span id='global_rate'></span></td>
-          <td width='19%'>Share difficulty:</td>
-          <td width='31%' class='text-right'><span id='share_difficulty'></span></td>
+          <td width="19%">Global pool rate:</td>
+          <td class="text-right" width="31%"><span id="global_rate"></span><br>
+</td>
+          <td width="19%">Share difficulty:</td>
+          <td class="text-right" width="31%"><span id="share_difficulty"></span><br>
+</td>
         </tr>
         <tr>
-          <td width='19%'>Current block value:</td>
-          <td width='31%' class='text-right'><span id='block_value'></span></td>
-          <td width='19%'>Expected time to share:</td>
-          <td width='31%' class='text-right'><span id='expected_time_to_share'></span></td>
+          <td width="19%">Current block value:</td>
+          <td class="text-right" width="31%"><span id="block_value"></span><br>
+</td>
+          <td width="19%">Expected time to share:</td>
+          <td class="text-right" width="31%"><span id="expected_time_to_share"></span><br>
+</td>
         </tr>
         <tr>
-          <td width='19%'>Payout if a block were found NOW:</td>
-          <td width='31%' class='text-right'><span id='payout_now'></span></td>
-          <td width='19%'>Expected time to block:</td>
-          <td width='31%' class='text-right'><span id='expected_time_to_block'></span></td>
+          <td width="19%">Payout if a block were found NOW:</td>
+          <td class="text-right" width="31%"><span id="payout_now"></span><br>
+</td>
+          <td width="19%">Expected time to block:</td>
+          <td class="text-right" width="31%"><span id="expected_time_to_block"></span><br>
+</td>
         </tr>
         <tr>
-          <td width='19%'>Node peers:</td>
-          <td width='31%' class='text-right'>
-            <i class='fa fa-sign-in fa-fw'></i>
-            <span id='peers_in'></span>
+          <td width="19%">Node peers:</td>
+          <td class="text-right" width="31%">
+            <i class="fa fa-sign-in fa-fw"></i>
+            <span id="peers_in"></span>
             /
-            <i class='fa fa-sign-out fa-fw'></i>
-            <span id='peers_out'></span>
+            <i class="fa fa-sign-out fa-fw"></i>
+            <span id="peers_out"></span>
           </td>
-          <td width='19%'>Node uptime:</td>
-          <td width='31%' class='text-right'><span id='node_uptime'></span></td>
+          <td width="19%">Node uptime:</td>
+          <td class="text-right" width="31%"><span id="node_uptime"></span><br>
+</td>
         </tr>
         <tr>
-          <td width='19%'>Node p2pool version:</td>
-          <td width='31%' class='text-right'><span id='p2pool_version'></span></td>
-          <td width='19%'>Protocol version:</td>
-          <td width='31%' class='text-right'><span id='protocol_version'></span></td>
+          <td width="19%">Node p2pool version:</td>
+          <td class="text-right" width="31%"><span id="p2pool_version"></span><br>
+</td>
+          <td width="19%">Protocol version:</td>
+          <td class="text-right" width="31%"><span id="protocol_version"></span><br>
+</td>
         </tr>
         <tr>
-          <td width='19%'>Node fee:</td>
-          <td width='31%' class='text-right'><span id='node_fee'></span></td>
-          <td width='19%'>Node donation:</td>
-          <td width='31%' class='text-right'><span id='node_donation'></span></td>
+          <td width="19%">Node fee:</td>
+          <td class="text-right" width="31%"><span id="node_fee"></span><br>
+</td>
+          <td width="19%">Node donation:</td>
+          <td class="text-right" width="31%"><span id="node_donation"></span><br>
+</td>
         </tr>
-      </table>
+      </tbody></table>
 
       <h4>Active miners on this node</h4>
-      <table id='active_miners' class="table table-hover">
-        <tr>
-          <th width='50%' class='text-left'>Bitcoin Address</th>
-          <th width='12%' class='text-right'>Hashrate</th>
-          <th width='12%' class='text-right'>DOA Hashrate</th>
-          <th width='12%' class='text-right'>DOA %</th>
-          <th width='14%' class='text-right'>Predicted payout</th>
+      <table id="active_miners" class="table table-hover">
+        <tbody><tr>
+          <th class="text-left" width="50%">Digibyte Address</th>
+          <th class="text-right" width="12%">Hashrate</th>
+          <th class="text-right" width="12%">DOA Hashrate</th>
+          <th class="text-right" width="12%">DOA %</th>
+          <th class="text-right" width="14%">Predicted payout</th>
         </tr>
-      </table>
+      </tbody></table>
 
 <!--
       <h4>Pool Shares</h4>
@@ -169,27 +176,27 @@
  -->
 
       <h4>Recent blocks</h4>
-      <table id='recent_blocks' class="table table-hover">
-        <tr>
+      <table id="recent_blocks" class="table table-hover">
+        <tbody><tr>
           <th>Date/Time</th>
           <th>Number</th>
           <th>Hash</th>
           <th>Confirmations</th>
         </tr>
-      </table>
+      </tbody></table>
     </div> <!-- /container -->
 
-    <div id='footer'>
-      <div class='container'>
+    <div id="footer">
+      <div class="container">
         <hr>
-        <p class='text-center'>
+        <p class="text-center">
           Interface by johndoe75
-          &dash;
+          &amp;dash;
           <a href="https://github.com/johndoe75/p2pool-node-status.git">https://github.com/johndoe75/p2pool-node-status.git</a>
         </p>
-        <p class='text-center'>
+        <p class="text-center">
           Donate some coins, if you like it <code>1MzFr1eKzLEC1tuoZ7URMB7WWBMgHKimKe</code>
-          (<i class='fa fa-btc'></i>) or <code>LSRfZJf75MtwzrbAUfQgqzdK4hHpY4oMW3</code> (LTC)
+          (<i class="fa fa-btc"></i>) or <code>LSRfZJf75MtwzrbAUfQgqzdK4hHpY4oMW3</code> (LTC)
         </p>
       </div>
     </div>
@@ -593,5 +600,4 @@
     }, config.reload_chart_interval * 1000);
 
     </script>
-  </body>
-</html>
+  </body></html>
